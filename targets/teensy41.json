@@ -1,0 +1,17 @@
+{
+  "inherits": ["cortex-m"],
+  "llvm-target": "armv7em-none-eabi",
+  "cpu": "cortex-m7",
+  "build-tags": ["teensy41", "teensy", "mimxrt1062", "nxp"],
+  "automatic-stack-size": false,
+  "default-stack-size": 4096,
+  "cflags": [
+    "--target=armv7em-none-eabi",
+    "-Qunused-arguments",
+    "-mfloat-abi=soft"
+  ],
+  "scheduler": "none",
+  "linkerscript": "targets/mimxrt1062-teensy41.ld",
+  "extra-files": ["src/device/nxp/mimxrt1062.s", "targets/teensy41.s"],
+  "flash-command": "teensy_loader_cli -mmcu=imxrt1062 -v -w {hex}"
+}
